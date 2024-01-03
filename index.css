@@ -1,0 +1,210 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.form {
+  width: 70%;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+h1 {
+  font-weight: 100;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+hr {
+  width: 100%;
+}
+p {
+  margin: 3rem;
+}
+.formulario {
+  width: 70%;
+  height: 70%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+textarea{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#enviar {
+  display: flex;
+  width: 12.9375rem;
+  height: 2.9375rem;
+  background-color: #0059ff;
+  padding: 0.75rem 4.3125rem 0.6875rem 4.3125rem;
+  justify-content: center;
+  cursor: pointer;
+  font-size: large;
+  color: #fff;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+
+#refazer {
+  margin: 3rem;
+  display: flex;
+  width: 12.9375rem;
+  height: 2.9375rem;
+  padding: 0.75rem 4.125rem 0.6875rem 4.125rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: 2px solid #0f62fe;
+  background: #fff;
+  font-size: large;
+  color: #0f62fe;
+  cursor: pointer;
+}
+
+
+
+.beto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#betoDiv{
+  width: 70%;
+  margin: 3rem;
+}
+
+.beto{
+  width: 100%;
+}
+
+.lables{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.containerTooltips{
+  margin-left: .5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+
+.containerTooltips .tooltipContent{
+  position: absolute;
+  background-color: black;
+  padding: 1rem;
+  margin: .28rem;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+  width: max-content;
+}
+
+.containerTooltips .tooltipContent::before{
+  content: " ";
+  border-style: solid;
+  border-width: .5rem;
+  border-color: transparent black transparent  transparent;
+  position: absolute;
+ margin-left: -1.5rem;
+}
+
+.containerTooltips:hover .tooltipContent{
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipText{
+  font-size: large;
+  font-weight: 900;
+  border-radius: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: .1rem;
+  width: 25px;
+  height: 25px;
+  border: solid black 1.5px;
+  display: inline-block;
+  padding-top: .2rem;
+
+}
+
+.contentBeto{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 70%;
+  justify-content: flex-start;
+  margin-left: 3rem;
+}
+
+.textAreasOp{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background-color: #f3f3f3;
+  border: none;
+  width: 70%;
+}
+
+.icons{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 70%;
+}
+
+.icon{
+  margin: .2rem;
+}
+
+
+@page {
+  size: A4;
+  margin: 15mm;
+}
+
+
+#betoDiv{
+  width: 70%;
+  margin: 3rem;
+}

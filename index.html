@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="assets/icon.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="index.css" />
+  <title>BETO</title>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+  <script src="index.js"></script>
+
+
+</head>
+
+<body>
+  <div class="form">
+    <H1>BETO</H1>
+    <hr>
+  </div>
+  <p>A ideia do BETO é servir como template para contar a história de como ocorreu a implementação
+    dos casos que trabalhamos</p>
+  <form class="formulario">
+    <div class="container">
+
+      <div class="content">
+
+        <div class="lables">
+          <div class="titulos">
+            <label for="coInput">Quem é o seu cliente? (opcional)</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Descreva quem é o seu cliente</span>
+          </div>
+        </div>
+        <textarea required name="coInput" id="coInput" class="textAreasOp" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+
+      <div class="content">
+
+        <div class="lables">
+          <div class="titulos">
+            <label for="cmInput">Qual a missão do cliente> (opcional)</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Descreva o que o seu cliente deseja</span>
+          </div>
+        </div>
+        <textarea required name="cmInput" id="cmInput" class="textAreasOp" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+      <div class="content">
+
+        <div class="lables">
+          <div class="titulos">
+            <label for="pcInput">Contatos (opcional)</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Quais foram os seus contatos trabalhando com essa conta?<br>
+            EX: nome - empresa - cargo </span>
+          </div>
+        </div>
+        <textarea required name="pcInput" id="pcInput" class="textAreasOp" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+      <div class="content">
+
+        <div class="lables">
+          <div class="titulos">
+            <label for="tInput">O que estamos implementando</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Qual o produto que está sendo implementado? <br>
+              Por quem está sendo implementado? <br>
+              Para qual fim será implementado? <br>
+              Qual o plano de ação criado para implementar a solução? <br></span>
+          </div>
+        </div>
+        <textarea required name="tInput" id="tInput" class="textAreas" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+      <div class="content">
+        <div class="lables">
+          <div class="titulos">
+            <label for="tAInput">Qual a arquitetura usada?</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Descrição da arquitetura utilizada para a implementação do nosso
+              projeto</span>
+          </div>
+
+
+
+        </div>
+        <textarea required name="tAInput" id="tAInput" class="textAreas" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+
+      <div class="content">
+        <div class="lables">
+          <div class="titulos">
+            <label for="tSInput">Qual a solução de Storage?</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Descrição da solução de storage. Caso não exista explique o motivo<br> Se for
+              SaaS
+              usamos o padrão da cloud onde está hospedado</span>
+          </div>
+        </div>
+        <textarea required name="tSInput" id="tSInput" class="textAreas" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+
+
+
+      <div class="content">
+        <div class="lables">
+          <div class="titulos">
+            <label for="tHInput">Qual a solução de HA do cliente?</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Descreva a solução de high availability utilizada pelo cliente<br> Caso não exista explique o motivo</span>
+          </div>
+        </div>
+
+
+        <textarea required name="tHInput" id="tHInput" class="textAreas" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+    </div>
+    </div>
+    <div class="content">
+      <div class="lables">
+        <label for="bInput">Para resolver qual dor</label>
+        <div class="containerTooltips">
+          <span class="tooltipText">?</span>
+          <span class="tooltipContent">Qual a dor de negócio que justificou o investimento no projeto? <br>
+            Qual o C.R.A.? <br></span>
+        </div>
+      </div>
+      <textarea name="bInput" id="bInput" class="textAreas" oninput="autoResize(this)" style="padding: .5rem;"
+        oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
+    </div>
+
+    <div class="content">
+      <div class="lables">
+        <label for="eInput">O que, no processo do cliente, causa essa dor</label>
+        <div class="containerTooltips">
+          <span class="tooltipText">?</span>
+          <span class="tooltipContent">O que, no contexto do cliente, causa essa dor de negócio? <br>
+            Que tipo de processo, ou inexistência de processo, faz com que essa dor exista? </span>
+        </div>
+
+      </div>
+      <textarea required name="eInput" id="eInput" class="textAreas" oninput="autoResize(this)" style="padding: .5rem;"
+        oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
+    </div>
+
+    <div class="content">
+      <div class="lables">
+        <label for="oInput">
+          Quais resultados foram alcançados depois de resolver o
+          problema</label>
+        <div class="containerTooltips">
+          <span class="tooltipText">?</span>
+          <span class="tooltipContent">Quais os resultados alcançados ao resolver essa dor? <br>
+            Inclua dados quantitativos e/ou qualitativos obtidos ao resolver a dor.<br>
+          Qual foi a contribuição do CSM?</span>
+        </div>
+
+      </div>
+      <textarea required name="oInput" id="oInput" class="textAreas" style="padding: .5rem;" oninput="autoResize(this)"
+        oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
+    </div>
+
+    </div>
+    <div class="btn">
+      <input type="button" id="enviar" onclick="show()" value="Enviar" />
+
+    </div>
+  </form>
+
+  <hr id="betoDiv">
+
+  <div class="beto">
+    <!-- <div class="betoResult">
+            <textarea name="betoResult" id="betoResult" style="padding: .5rem;" disabled oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="115" rows="100"></textarea>
+        </div> -->
+    <div class="icons">
+
+
+      <button class="icon" id="translator"  onclick="traduzir()">
+        <img src="./assets/translator.svg" alt="traduzir">
+      </button>
+
+
+      <button class="icon" id="download" onclick="download()">
+        <img src="./assets/download.svg" alt="baixar">
+      </button>
+
+
+
+      <button class="icon" id="copy" onclick="copy()">
+        <img src="./assets/copy.svg" alt="copiar">
+      </button>
+
+
+    </div>
+
+
+    <div class="contentBeto" id="contentBeto">
+      <span class="betoTeste" id="betoTeste">
+      </span>
+    </div>
+
+  </div>
+
+
+
+  <hr id="betoDiv">
+
+  <input type="button" id="refazer" onclick="refazer()" value="Refazer" />
+  </div>
+
+  </div>
+</body>
+
+</html>
