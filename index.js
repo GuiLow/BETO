@@ -255,25 +255,3 @@ function download() {
   // Salvar o arquivo PDF
   doc.save('beto.pdf');
 }
-
-async function traduzir() {
-  const url = "https://pokeapi.co/api/v2/pokemon/ditto"; // Ajuste na porta para corresponder à porta do seu servidor Express
-
-  const response = await axios.get(url)
-  const data = response.data
-
-  console.log(data)
-  document.getElementById("betoTeste").innerText = data.name;
-
-  // try {
-  //   const response = await axios.get(url, {
-  //     params: {
-  //       text: document.getElementById("betoTeste").value,
-  //     },
-  //   });
-
-  //   console.log(response.data);
-  // } catch (error) {
-  //   console.error(error);
-  // }
-}
