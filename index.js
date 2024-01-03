@@ -122,10 +122,10 @@ function splice() {
     bLi += "</ul>";
     eLi += "</ul>";
     tLi += "</ul>";
-    oLi += "</ul>";
     tALi += "</ul>";
     tSLi += "</ul>";
     tHLi += "</ul>";
+    oLi += "</ul>";
 
     if (co != "") {
       document.getElementById("betoTeste").innerHTML = `
@@ -151,7 +151,7 @@ function splice() {
     <strong>Technical:</strong>
     <p>${tLi}</p>
     <strong>Architecture:</strong>
-    <p>${oLi}</p>
+    <p>${tALi}</p>
     <strong>Storage:</strong>
     <p>${tSLi}</p>
     <strong>HA:</strong>
