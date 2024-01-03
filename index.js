@@ -122,10 +122,11 @@ function splice() {
     bLi += "</ul>";
     eLi += "</ul>";
     tLi += "</ul>";
-    oLi += "</ul>";
     tALi += "</ul>";
     tSLi += "</ul>";
     tHLi += "</ul>";
+    oLi += "</ul>";
+    
 
     if (co != "") {
       document.getElementById("betoTeste").innerHTML = `
@@ -151,7 +152,7 @@ function splice() {
     <strong>Technical:</strong>
     <p>${tLi}</p>
     <strong>Architecture:</strong>
-    <p>${oLi}</p>
+    <p>${tALi}</p>
     <strong>Storage:</strong>
     <p>${tSLi}</p>
     <strong>HA:</strong>
@@ -244,7 +245,7 @@ function download() {
   for (let i = 0; i < textLines.length; i++) {
       // Adicionar uma nova linha apenas se não for a primeira
       if (i > 0) {
-          yPosition += parseInt(4) || 10;
+          yPosition += parseInt(4.5) || 10;
           addNewPageIfNeeded(); // Verificar se é necessário adicionar uma nova página
       }
       doc.text(15, yPosition, textLines[i]);
