@@ -122,11 +122,10 @@ function splice() {
     bLi += "</ul>";
     eLi += "</ul>";
     tLi += "</ul>";
+    oLi += "</ul>";
     tALi += "</ul>";
     tSLi += "</ul>";
     tHLi += "</ul>";
-    oLi += "</ul>";
-    
 
     if (co != "") {
       document.getElementById("betoTeste").innerHTML = `
@@ -152,7 +151,7 @@ function splice() {
     <strong>Technical:</strong>
     <p>${tLi}</p>
     <strong>Architecture:</strong>
-    <p>${tALi}</p>
+    <p>${oLi}</p>
     <strong>Storage:</strong>
     <p>${tSLi}</p>
     <strong>HA:</strong>
@@ -202,13 +201,25 @@ function refazer() {
 }
 
 function copy() {
+  const modalT = document.getElementById("modal-translate")
+  const modalD = document.getElementById("modal-download")
+  const modal = document.getElementById("modal-copy")
   const betoTeste = document.getElementById("betoTeste");
   const textToCopy = betoTeste.innerText;
 
   navigator.clipboard
     .writeText(textToCopy)
     .then(() => {
-      alert("Texto copiado com sucesso!");
+
+      modal.style.display = "block"
+      if (modalT.style.display == "block" || modalD.style.display == "block") {
+        modalD.style.display = "none"
+        modalT.style.display = "none"
+      }
+      setTimeout(()=>{
+       modal.style.display = "none"
+      }, 3000)
+      
     })
     .catch((error) => {
       console.error("Erro ao copiar o texto: ", error);
@@ -217,15 +228,19 @@ function copy() {
 }
 
 function download() {
+  const modalT = document.getElementById("modal-translate")
+  const modalC = document.getElementById("modal-copy")
+  const modal = document.getElementById("modal-download")
   const betoTeste = document.getElementById("betoTeste");
   const doc = new jsPDF();
 
   // Capturar estilos do elemento HTML
-  
+  const styles = window.getComputedStyle(betoTeste);
 
   // Configurar o estilo no PDF
-  doc.setFontSize(parseInt(16));
+  doc.setFontSize(parseInt(styles.fontSize));
   doc.setFont("times", "normal");
+  doc.setTextColor(styles.color);
 
   // Dividir o texto em linhas
   const textLines = doc.splitTextToSize(betoTeste.innerText, doc.internal.pageSize.width - 30);
@@ -245,7 +260,7 @@ function download() {
   for (let i = 0; i < textLines.length; i++) {
       // Adicionar uma nova linha apenas se não for a primeira
       if (i > 0) {
-          yPosition += parseInt(4.5) || 10;
+          yPosition += parseInt(styles.lineHeight) || 10;
           addNewPageIfNeeded(); // Verificar se é necessário adicionar uma nova página
       }
       doc.text(15, yPosition, textLines[i]);
@@ -254,4 +269,17 @@ function download() {
 
   // Salvar o arquivo PDF
   doc.save('beto.pdf');
+  modal.style.display = "block"
+
+    if (modalC.style.display == "block" ||  modalT.style.display == "block" ) {
+      modalC.style.display = "none"
+      modalT.style.display = "none"
+      
+    }
+
+  setTimeout(()=>{
+    modal.style.display = "none"
+  }, 3000)
+
+ 
 }
