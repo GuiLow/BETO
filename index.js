@@ -8,6 +8,7 @@ function validar() {
   const tA = document.getElementById("tAInput").value;
   const tS = document.getElementById("tSInput").value;
   const tH = document.getElementById("tHInput").value;
+  
 
   if (
     b == "" ||
@@ -37,7 +38,13 @@ function splice() {
     const tA = document.getElementById("tAInput").value;
     const tS = document.getElementById("tSInput").value;
     const tH = document.getElementById("tHInput").value;
+    const p = document.getElementById("pInput").value;
+    const l = document.getElementById("lInput").value;
+    const opo = document.getElementById("opoInput").value
+    const pu = document.getElementById("puInput").value
+    const n = document.getElementById("nInput").value
     const teste = document.getElementById("betoTeste");
+
 
     if (document.getElementById("betoTeste").innerHTML != "") {
       document.getElementById("betoTeste").innerHTML = "";
@@ -53,6 +60,11 @@ function splice() {
     const tArray = tA.split("\n");
     const tSrray = tS.split("\n");
     const tHrray = tH.split("\n");
+    const parray = p.split("\n");
+    const larray = l.split("\n");
+    const opoarray = opo.split("\n");
+    const puarray = pu.split("\n");
+    const narray = n.split("\n");
 
     let coLi = "<ul>";
     let cmLi = "<ul>";
@@ -64,6 +76,11 @@ function splice() {
     let tALi = "<ul>";
     let tSLi = "<ul>";
     let tHLi = "<ul>";
+    let pLi = "<ul>";
+    let lLi = "<ul>";
+    let opoLi = "<ul>";
+    let puLi = "<ul>";
+    let nLi = "<ul>";
 
     for (let index = 0; index < corray.length; index++) {
       if (corray[index] !== "") {
@@ -116,6 +133,36 @@ function splice() {
       }
     }
 
+    for (let index = 0; index < parray.length; index++) {
+      if (parray[index] !== "") {
+        pLi += `<li>${parray[index]}</li><br>`;
+      }
+    }
+
+    for (let index = 0; index < larray.length; index++) {
+      if (larray[index] !== "") {
+        lLi += `<li>${larray[index]}</li><br>`;
+      }
+    }
+
+    for (let index = 0; index < opoarray.length; index++) {
+      if (opoarray[index] !== "") {
+        opoLi += `<li>${opoarray[index]}</li><br>`;
+      }
+    }
+
+    for (let index = 0; index < puarray.length; index++) {
+      if (puarray[index] !== "") {
+        puLi += `<li>${puarray[index]}</li><br>`;
+      }
+    }
+
+    for (let index = 0; index < narray.length; index++) {
+      if (narray[index] !== "") {
+        nLi += `<li>${narray[index]}</li><br>`;
+      }
+    }
+
     coLi += "</ul>";
     cmLi += "</ul>";
     pcLi += "</ul>";
@@ -126,6 +173,11 @@ function splice() {
     tSLi += "</ul>";
     tHLi += "</ul>";
     oLi += "</ul>";
+    lLi += "</ul>";
+    opoLi += "</ul>";
+    puLi += "</ul>";
+    nLi += "</ul>";
+
 
     if (co != "") {
       document.getElementById("betoTeste").innerHTML = `
@@ -159,7 +211,45 @@ function splice() {
     <strong>Outcome:</strong>
     <p>${oLi}</p>
   `;
+
+
+  if (l != "") {
+    document.getElementById("betoTeste").innerHTML += `
+  <strong>Lessons Learned:</strong>
+  <p>${lLi}</p>`;
   }
+
+
+ 
+ 
+
+  if ( p != "") {
+    document.getElementById("betoTeste").innerHTML += `
+  <strong>Project Contacts:</strong>
+  <p>${lLi}</p>`;
+  }
+
+  if (opo != "") {
+    document.getElementById("betoTeste").innerHTML += `
+  <strong>Project Contacts:</strong>
+  <p>${opoLi}</p>`;
+  }
+
+  if (pu != "") {
+    document.getElementById("betoTeste").innerHTML += `
+  <strong>Project Contacts:</strong>
+  <p>${puLi}</p>`;
+  }
+
+  if (n != "") {
+    document.getElementById("betoTeste").innerHTML += `
+  <strong>Project Contacts:</strong>
+  <p>${nLi}</p>`;
+  }
+
+  }
+
+  
 }
 
 function autoResize(textarea) {
@@ -198,10 +288,14 @@ function refazer() {
   document.getElementById("cmInput").value = "";
   document.getElementById("pcInput").value = "";
   document.getElementById("betoTeste").innerText = "";
+  document.getElementById("lInput").value = "";
+  document.getElementById("puInput").value = "";
+  document.getElementById("opoInput").value = "";
+  document.getElementById("pInput").value = "";
+  document.getElementById("nInput").value = "";
 }
 
 function copy() {
-  const modalT = document.getElementById("modal-translate")
   const modalD = document.getElementById("modal-download")
   const modal = document.getElementById("modal-copy")
   const betoTeste = document.getElementById("betoTeste");
@@ -212,9 +306,9 @@ function copy() {
     .then(() => {
 
       modal.style.display = "block"
-      if (modalT.style.display == "block" || modalD.style.display == "block") {
+      if (modalD.style.display == "block") {
         modalD.style.display = "none"
-        modalT.style.display = "none"
+  
       }
       setTimeout(()=>{
        modal.style.display = "none"
@@ -228,7 +322,6 @@ function copy() {
 }
 
 function download() {
-  const modalT = document.getElementById("modal-translate")
   const modalC = document.getElementById("modal-copy")
   const modal = document.getElementById("modal-download")
   const betoTeste = document.getElementById("betoTeste");
@@ -271,9 +364,8 @@ function download() {
   doc.save('beto.pdf');
   modal.style.display = "block"
 
-    if (modalC.style.display == "block" ||  modalT.style.display == "block" ) {
+    if (modalC.style.display == "block" ) {
       modalC.style.display = "none"
-      modalT.style.display = "none"
       
     }
 
@@ -282,4 +374,15 @@ function download() {
   }, 3000)
 
  
+}
+
+
+function closeCopy(){
+  const modal = document.getElementById("modal-copy")
+  modal.style.display = "none"
+}
+
+function closeDownload(){
+  const modal = document.getElementById("modal-download")
+  modal.style.display = "none"
 }

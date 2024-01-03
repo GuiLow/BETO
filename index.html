@@ -29,8 +29,10 @@
     <hr>
   </div>
   <p>A ideia do BETO é servir como template para contar a história de como ocorreu a implementação
-    dos casos que trabalhamos</p>
-  <form class="formulario">
+    dos casos que trabalhamos. <br><br>Caso não saiba o que é um BETO <a href="https://ibm.box.com/s/o3fqv33ucetmzanen0n7urlhcpmmvva8" target="_blank">clique aqui</a></p>
+      
+      <form class="formulario">
+    
     <div class="container">
 
       <div class="content">
@@ -134,6 +136,23 @@
           style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
           rows="5"></textarea>
       </div>
+
+      <div class="content">
+        <div class="lables">
+          <label for="pInput">
+            Project phases (opcional)</label>
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Descrição em detalhes sobre fases marcantes e relevantes do projeto:</span>
+          </div>
+
+        </div>
+        <textarea required name="pInput" id="pInput" class="textAreasOp" style="padding: .5rem;"
+          oninput="autoResize(this)" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+
       <div class="content">
         <div class="lables">
           <label for="oInput">
@@ -152,6 +171,8 @@
           oninput="autoResize(this)" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
           rows="5"></textarea>
       </div>
+
+
       <div class="content">
         <div class="lables">
           <div class="titulos">
@@ -207,6 +228,87 @@
           style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
           rows="5"></textarea>
       </div>
+
+      <div class="content">
+
+        <div class="lables">
+          <div class="titulos">
+            <label for="lInput">Lessons Learned (opcional)</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">descrição das lições aprendidas e um breve comentário do que poderíamos fazer
+              diferente</span>
+          </div>
+        </div>
+        <textarea required name="lInput" id="lInput" class="textAreasOp" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+
+      <div class="content">
+
+        <div class="lables">
+          <div class="titulos">
+            <label for="opoInput">Opportunity Identification versus Implementation (opcional)</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Responder as perguntas abaixo<br>
+              Opportunity identified by: BP/IBM.<br>
+              Deployment executed by: BP/IBM.
+            </span>
+          </div>
+        </div>
+        <textarea required name="opoInput" id="opoInput" class="textAreasOp" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+
+      <div class="content">
+
+        <div class="lables">
+          <div class="titulos">
+            <label for="puInput">Public Reference/peer Insights (opcional)</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Responder as perguntas abaixo<br>
+              Is eligible to become a Public Reference?  (yes / no)<br>
+              Is eligible for Gartner Peer Insights Review?  (yes / no)
+            </span>
+          </div>
+        </div>
+        <textarea required name="puInput" id="puInput" class="textAreasOp" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+
+
+      <div class="content">
+
+        <div class="lables">
+          <div class="titulos">
+            <label for="nInput">Next Steps (opcional)</label>
+          </div>
+
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Existe algum outro projeto que será derivado desta implementação?<br> Se sim, escrever
+              um breve resumo de uma ou duas linhas sobre o que podemos fazer
+            </span>
+          </div>
+        </div>
+        <textarea required name="nInput" id="nInput" class="textAreasOp" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+      
     </div>
     </div>
 
@@ -215,11 +317,17 @@
       <input type="button" id="enviar" onclick="show()" value="Enviar" />
 
     </div>
+
   </form>
+  
+ 
+    <hr id="betoDiv">
 
-  <hr id="betoDiv">
-
+    
+  
   <div class="beto">
+
+    
     <!-- <div class="betoResult">
             <textarea name="betoResult" id="betoResult" style="padding: .5rem;" disabled oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="115" rows="100"></textarea>
         </div> -->
@@ -239,17 +347,32 @@
 
     </div>
 
+    <div class="modal-download" id="modal-download">
+      <button id="close" onclick="closeDownload()">X</button>
+      <div class="content-modal">
+        <span>Download feito com sucesso!</span>
+        <svg id="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0f62fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      </div>
+    </div>
+    
+    
+    <div class="modal-copy" id="modal-copy">
+      <button id="close" onclick="closeCopy()">X</button>
+      <div class="content-modal">
+        <span>Copiado com sucesso!</span>
+        <svg id="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0f62fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      </div>
+    </div>
+
 
     <div class="contentBeto" id="contentBeto">
       <span class="betoTeste" id="betoTeste">
       </span>
     </div>
 
+   
+
   </div>
-
-
-
-  <hr id="betoDiv">
 
   <input type="button" id="refazer" onclick="refazer()" value="Refazer" />
   </div>

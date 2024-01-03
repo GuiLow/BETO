@@ -34,6 +34,7 @@ hr {
 p {
   margin: 3rem;
 }
+
 .formulario {
   width: 70%;
   height: 70%;
@@ -209,4 +210,54 @@ textarea{
 #betoDiv{
   width: 70%;
   margin: 3rem;
+}
+
+
+
+.modal-copy{
+  display: none;
+  border: 1px solid #0f62fe;
+  align-items: center;
+  justify-content: center;
+  margin-left: 55%;
+  margin-top: 1rem;
+}
+
+
+.modal-download{
+  display: none;
+  border: 1px solid #0f62fe;
+  align-items: center;
+  justify-content: center;
+  margin-left: 52%;
+  margin-top: 1rem;
+}
+
+
+.content-modal{
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+  color: #0f62fe;
+  padding: .5REM;
+  
+}
+
+#check{
+  width: 2rem;
+  margin-left: .5rem;
+
+}
+
+#close{
+  background-color: transparent;
+  border: none;
+  font-size: medium;
+  font-weight: 700;
+  margin-left: 93%;
+  margin-top: .2REM;
+  cursor: pointer;
+  color: #0059ff;
+
+
 }
