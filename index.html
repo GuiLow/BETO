@@ -11,7 +11,9 @@
   <title>BETO</title>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -35,12 +37,13 @@
 
         <div class="lables">
           <div class="titulos">
-            <label for="coInput">Quem é o seu cliente? (opcional)</label>
+            <label for="coInput">Escreva uma breve descrição do cliente (opcional)</label>
           </div>
 
           <div class="containerTooltips">
             <span class="tooltipText">?</span>
-            <span class="tooltipContent">Descreva quem é o seu cliente</span>
+            <span class="tooltipContent">Apresnete uma visão de mercado do cliente (descricão em site pessoal ou
+              wikipedia)</span>
           </div>
         </div>
         <textarea required name="coInput" id="coInput" class="textAreasOp" oninput="autoResize(this)"
@@ -58,10 +61,10 @@
 
           <div class="containerTooltips">
             <span class="tooltipText">?</span>
-            <span class="tooltipContent">Descreva o que o seu cliente deseja</span>
+            <span class="tooltipContent">Busque as missões e valores do cliente</span>
           </div>
         </div>
-        <textarea required name="cmInput" id="cmInput"  class="textAreasOp" oninput="autoResize(this)"
+        <textarea required name="cmInput" id="cmInput" class="textAreasOp" oninput="autoResize(this)"
           style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
           rows="5"></textarea>
       </div>
@@ -70,13 +73,13 @@
 
         <div class="lables">
           <div class="titulos">
-            <label for="pcInput">Contatos (opcional)</label>
+            <label for="pcInput">Quem são as pessoas envolvidas no projeto? (opcional)</label>
           </div>
 
           <div class="containerTooltips">
             <span class="tooltipText">?</span>
             <span class="tooltipContent">Quais foram os seus contatos trabalhando com essa conta?<br>
-            EX: nome - empresa - cargo </span>
+              EX: nome - empresa - cargo </span>
           </div>
         </div>
         <textarea required name="pcInput" id="pcInput" class="textAreasOp" oninput="autoResize(this)"
@@ -88,7 +91,7 @@
 
         <div class="lables">
           <div class="titulos">
-            <label for="tInput">O que estamos implementando?</label>
+            <label for="tInput">Como estamos, tecnicamente, resolvendo a dor do cliente?</label>
           </div>
 
           <div class="containerTooltips">
@@ -103,17 +106,62 @@
           style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
           rows="5"></textarea>
       </div>
+      <div class="content">
+        <div class="lables">
+          <label for="bInput">Qual é a dor de negócio resolvida com essa implementação?</label>
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Qual a dor de negócio que justificou o investimento no projeto? <br>
+              Qual o C.R.A.? <br></span>
+          </div>
+        </div>
+        <textarea name="bInput" id="bInput" class="textAreas" oninput="autoResize(this)" style="padding: .5rem;"
+          oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
+      </div>
 
       <div class="content">
         <div class="lables">
+          <label for="eInput">Qual ou quais são os fatores, no processo do cliente, responsáveis por causar essa
+            dor?</label>
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">O que, no contexto de funcionamento, organização ou governança do cliente,
+              causam essa dor de negócio? <br>
+              Que tipo de processo, ou inexistência de processo, faz com que essa dor exista? </span>
+          </div>
+
+        </div>
+        <textarea required name="eInput" id="eInput" class="textAreas" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+      <div class="content">
+        <div class="lables">
+          <label for="oInput">
+            Quais foram os resultados alcançados ao resolver o problema?</label>
+          <div class="containerTooltips">
+            <span class="tooltipText">?</span>
+            <span class="tooltipContent">Ao resolver a dor de negócio, quais foram os benefícios alcançados pelo
+              cliente? <br>
+              Inclua dados quantitativos e/ou qualitativos sempre que possível.<br>
+
+              Qual foi a contribuição do CSM?</span>
+          </div>
+
+        </div>
+        <textarea required name="oInput" id="oInput" class="textAreas" style="padding: .5rem;"
+          oninput="autoResize(this)" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
+      <div class="content">
+        <div class="lables">
           <div class="titulos">
-            <label for="tAInput">Qual a arquitetura usada?</label>
+            <label for="tAInput">Descreva a arquitetura utilizada.</label>
           </div>
 
           <div class="containerTooltips">
             <span class="tooltipText">?</span>
-            <span class="tooltipContent">Descrição da arquitetura utilizada para a implementação do nosso
-              projeto</span>
+            <span class="tooltipContent">Descrição em texto sobre a arquitetura de implementação.</span>
           </div>
 
 
@@ -128,23 +176,19 @@
       <div class="content">
         <div class="lables">
           <div class="titulos">
-            <label for="tSInput">Qual a solução de Storage?</label>
+            <label for="tSInput">Qual a solução de Storage utilizada?</label>
           </div>
 
           <div class="containerTooltips">
             <span class="tooltipText">?</span>
             <span class="tooltipContent">Descrição da solução de storage. Caso não exista explique o motivo<br> Se for
-              SaaS
-              usamos o padrão da cloud onde está hospedado</span>
+              SaaS, usamos o padrão da cloud onde está hospedado</span>
           </div>
         </div>
         <textarea required name="tSInput" id="tSInput" class="textAreas" oninput="autoResize(this)"
           style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
           rows="5"></textarea>
       </div>
-
-
-
 
       <div class="content">
         <div class="lables">
@@ -154,7 +198,8 @@
 
           <div class="containerTooltips">
             <span class="tooltipText">?</span>
-            <span class="tooltipContent">Descreva a solução de high availability utilizada pelo cliente<br> Caso não exista explique o motivo</span>
+            <span class="tooltipContent">Descreva a solução de high availability utilizada pelo cliente<br> Caso não
+              exista explique o motivo</span>
           </div>
         </div>
 
@@ -164,49 +209,6 @@
           rows="5"></textarea>
       </div>
     </div>
-    </div>
-    <div class="content">
-      <div class="lables">
-        <label for="bInput">Para resolver qual dor?</label>
-        <div class="containerTooltips">
-          <span class="tooltipText">?</span>
-          <span class="tooltipContent">Qual a dor de negócio que justificou o investimento no projeto? <br>
-            Qual o C.R.A.? <br></span>
-        </div>
-      </div>
-      <textarea name="bInput" id="bInput" class="textAreas" oninput="autoResize(this)" style="padding: .5rem;"
-        oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
-    </div>
-
-    <div class="content">
-      <div class="lables">
-        <label for="eInput">O que, no processo do cliente, causa essa dor?</label>
-        <div class="containerTooltips">
-          <span class="tooltipText">?</span>
-          <span class="tooltipContent">O que, no contexto do cliente, causa essa dor de negócio? <br>
-            Que tipo de processo, ou inexistência de processo, faz com que essa dor exista? </span>
-        </div>
-
-      </div>
-      <textarea required name="eInput" id="eInput" class="textAreas" oninput="autoResize(this)" style="padding: .5rem;"
-        oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
-    </div>
-
-    <div class="content">
-      <div class="lables">
-        <label for="oInput">
-          Quais resultados foram alcançados depois de resolver o
-          problema?</label>
-        <div class="containerTooltips">
-          <span class="tooltipText">?</span>
-          <span class="tooltipContent">Quais os resultados alcançados ao resolver essa dor? <br>
-            Inclua dados quantitativos e/ou qualitativos obtidos ao resolver a dor.<br>
-          Qual foi a contribuição do CSM?</span>
-        </div>
-
-      </div>
-      <textarea required name="oInput" id="oInput" class="textAreas" style="padding: .5rem;" oninput="autoResize(this)"
-        oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
     </div>
 
     </div>
