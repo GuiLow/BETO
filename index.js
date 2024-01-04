@@ -225,25 +225,25 @@ function splice() {
 
   if ( p != "") {
     document.getElementById("betoTeste").innerHTML += `
-  <strong>Project Contacts:</strong>
-  <p>${lLi}</p>`;
+  <strong>Project phases:</strong>
+  <p>${pLi}</p>`;
   }
 
   if (opo != "") {
     document.getElementById("betoTeste").innerHTML += `
-  <strong>Project Contacts:</strong>
+  <strong>Opportunity Identification versus Implementation:</strong>
   <p>${opoLi}</p>`;
   }
 
   if (pu != "") {
     document.getElementById("betoTeste").innerHTML += `
-  <strong>Project Contacts:</strong>
+  <strong>Public Reference/peer Insights:</strong>
   <p>${puLi}</p>`;
   }
 
   if (n != "") {
     document.getElementById("betoTeste").innerHTML += `
-  <strong>Project Contacts:</strong>
+  <strong>Next Steps:</strong>
   <p>${nLi}</p>`;
   }
 
