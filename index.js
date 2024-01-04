@@ -1,5 +1,82 @@
 window.jsPDF = window.jspdf.jsPDF;
 
+// Função para armazenar dados em cache com timestamp
+function armazenarEmCache(chave, valor) {
+  const agora = new Date().getTime(); // Obtém o timestamp atual
+  const dados = { valor, timestamp: agora };
+  localStorage.setItem(chave, JSON.stringify(dados));
+}
+
+// Função para recuperar dados em cache
+function recuperarDoCache(chave) {
+  const dados = localStorage.getItem(chave);
+  if (dados) {
+    const { valor, timestamp } = JSON.parse(dados);
+    const agora = new Date().getTime();
+
+    // Verifica se passou mais de 24 horas desde o armazenamento
+    if (agora - timestamp < 24 * 60 * 60 * 1000) {
+      return valor; // Retorna os dados em cache
+    } else {
+      localStorage.removeItem(chave); // Remove os dados do cache
+    }
+  }
+  return null; // Retorna nulo se não houver dados válidos em cache
+}
+
+// Função para armazenar os dados do formulário em cache
+function armazenarDadosDoFormularioEmCache() {
+  const co = document.getElementById("coInput").value;
+  const cm = document.getElementById("cmInput").value;
+  const pc = document.getElementById("pcInput").value;
+  const b = document.getElementById("bInput").value;
+  const e = document.getElementById("eInput").value;
+  const t = document.getElementById("tInput").value;
+  const o = document.getElementById("oInput").value;
+  const tA = document.getElementById("tAInput").value;
+  const tS = document.getElementById("tSInput").value;
+  const tH = document.getElementById("tHInput").value;
+  const p = document.getElementById("pInput").value;
+  const l = document.getElementById("lInput").value;
+  const opo = document.getElementById("opoInput").value;
+  const pu = document.getElementById("puInput").value;
+  const n = document.getElementById("nInput").value;
+
+  const dadosFormulario = {
+    co, cm, pc, b, e, t, o, tA, tS, tH, p, l, opo, pu, n
+  };
+
+  armazenarEmCache('dadosFormulario', dadosFormulario);
+}
+
+// Função para carregar dados do cache e preencher o formulário
+function carregarDadosDoCache() {
+  const dadosFormulario = recuperarDoCache('dadosFormulario');
+
+  if (dadosFormulario) {
+    armazenarDadosDoFormularioEmCache();
+    document.getElementById("coInput").value = dadosFormulario.co;
+    document.getElementById("cmInput").value = dadosFormulario.cm;
+    document.getElementById("pcInput").value = dadosFormulario.pc;
+    document.getElementById("bInput").value = dadosFormulario.b;
+    document.getElementById("eInput").value = dadosFormulario.e;
+    document.getElementById("tInput").value = dadosFormulario.t;
+    document.getElementById("oInput").value = dadosFormulario.o;
+    document.getElementById("tAInput").value = dadosFormulario.tA;
+    document.getElementById("tSInput").value = dadosFormulario.tS;
+    document.getElementById("tHInput").value = dadosFormulario.tH;
+    document.getElementById("pInput").value = dadosFormulario.p;
+    document.getElementById("lInput").value = dadosFormulario.l;
+    document.getElementById("opoInput").value = dadosFormulario.opo;
+    document.getElementById("puInput").value = dadosFormulario.pu;
+    document.getElementById("nInput").value = dadosFormulario.n;
+  }
+}
+
+// Chamar a função para carregar os dados do cache ao carregar a página
+document.addEventListener('DOMContentLoaded', carregarDadosDoCache);
+
+
 function validar() {
   const b = document.getElementById("bInput").value;
   const e = document.getElementById("eInput").value;
