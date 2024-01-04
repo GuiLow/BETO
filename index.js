@@ -39,7 +39,7 @@ function armazenarDadosDoFormularioEmCache() {
   const p = document.getElementById("pInput").value;
   const l = document.getElementById("lInput").value;
   const opo = document.getElementById("opoInput").value;
-  const pu = document.getElementById("puInput").value;
+  const pu = document.getElementById("puInput")
   const n = document.getElementById("nInput").value;
 
   const dadosFormulario = {
@@ -118,9 +118,11 @@ function splice() {
     const p = document.getElementById("pInput").value;
     const l = document.getElementById("lInput").value;
     const opo = document.getElementById("opoInput").value
-    const pu = document.getElementById("puInput").value
+    const pu = document.getElementById("radioYes")
     const n = document.getElementById("nInput").value
     const teste = document.getElementById("betoTeste");
+    
+
 
 
     if (document.getElementById("betoTeste").innerHTML != "") {
@@ -140,7 +142,6 @@ function splice() {
     const parray = p.split("\n");
     const larray = l.split("\n");
     const opoarray = opo.split("\n");
-    const puarray = pu.split("\n");
     const narray = n.split("\n");
 
     let coLi = "<ul>";
@@ -228,11 +229,11 @@ function splice() {
       }
     }
 
-    for (let index = 0; index < puarray.length; index++) {
-      if (puarray[index] !== "") {
-        puLi += `<li>${puarray[index]}</li><br>`;
+    
+      if (pu.checked) {
+        puLi += `<li>${pu.value}</li><br>`;
       }
-    }
+    
 
     for (let index = 0; index < narray.length; index++) {
       if (narray[index] !== "") {
@@ -255,6 +256,7 @@ function splice() {
     puLi += "</ul>";
     nLi += "</ul>";
 
+    console.log(puLi)
 
     if (co != "") {
       document.getElementById("betoTeste").innerHTML = `
@@ -312,7 +314,7 @@ function splice() {
   <p>${opoLi}</p>`;
   }
 
-  if (pu != "") {
+  if (pu.checked) {
     document.getElementById("betoTeste").innerHTML += `
   <strong>Public Reference/peer Insights:</strong>
   <p>${puLi}</p>`;
