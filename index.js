@@ -79,7 +79,8 @@ document.addEventListener('DOMContentLoaded', carregarDadosDoCache);
 
 function validar() {
   const b = document.getElementById("bInput").value;
-  const e = document.getElementById("eInput").value;
+  const e1 = document.getElementById("e1Input").value;
+  const e2 = document.getElementById("e2Input").value;
   const t = document.getElementById("tInput").value;
   const o = document.getElementById("oInput").value;
   const tA = document.getElementById("tAInput").value;
@@ -89,14 +90,15 @@ function validar() {
 
   if (
     b == "" ||
-    e == "" ||
+    e1 == "" ||
+    e2 == "" ||
     t == "" ||
     o == "" ||
     tA == "" ||
     tS == "" ||
     tH == ""
   ) {
-    alert("Por favor preencha todos os campos");
+    alert("Por favor preencha todos os campos obrigatorios");
     return false;
   }
 
@@ -109,7 +111,8 @@ function splice() {
     const cm = document.getElementById("cmInput").value;
     const pc = document.getElementById("pcInput").value;
     const b = document.getElementById("bInput").value;
-    const e = document.getElementById("eInput").value;
+    const e1 = document.getElementById("e1Input").value;
+    const e2 = document.getElementById("e2Input").value;
     const t = document.getElementById("tInput").value;
     const o = document.getElementById("oInput").value;
     const tA = document.getElementById("tAInput").value;
@@ -133,7 +136,8 @@ function splice() {
     const cmrray = cm.split("\n");
     const pcrray = pc.split("\n");
     const brray = b.split("\n");
-    const erray = e.split("\n");
+    const e1rray = e1.split("\n");
+    const e2rray = e2.split("\n");
     const trray = t.split("\n");
     const orray = o.split("\n");
     const tArray = tA.split("\n");
@@ -148,7 +152,8 @@ function splice() {
     let cmLi = "<ul>";
     let pcLi = "<ul>";
     let bLi = "<ul>";
-    let eLi = "<ul>";
+    let e1Li = "<ul>";
+    let e2Li = "<ul>";
     let tLi = "<ul>";
     let oLi = "<ul>";
     let tALi = "<ul>";
@@ -162,82 +167,87 @@ function splice() {
 
     for (let index = 0; index < corray.length; index++) {
       if (corray[index] !== "") {
-        coLi += `<li>${corray[index]}</li><br>`;
+        coLi += `<li class="relsutLi">${corray[index]}</li><br>`;
       }
     }
     for (let index = 0; index < cmrray.length; index++) {
       if (cmrray[index] !== "") {
-        cmLi += `<li>${cmrray[index]}</li><br>`;
+        cmLi += `<li class="relsutLi">${cmrray[index]}</li><br>`;
       }
     }
     for (let index = 0; index < pcrray.length; index++) {
       if (pcrray[index] !== "") {
-        pcLi += `<li>${pcrray[index]}</li><br>`;
+        pcLi += `<li class="relsutLi">${pcrray[index]}</li><br>`;
       }
     }
     for (let index = 0; index < brray.length; index++) {
       if (brray[index] !== "") {
-        bLi += `<li>${brray[index]}</li><br>`;
+        bLi += `<li class="relsutLi">${brray[index]}</li><br>`;
       }
     }
-    for (let index = 0; index < erray.length; index++) {
-      if (erray[index] !== "") {
-        eLi += `<li>${erray[index]}</li><br>`;
+    for (let index = 0; index < e1rray.length; index++) {
+      if (e1rray[index] !== "") {
+        e1Li += `<li class="relsutLi">${e1rray[index]}</li><br>`;
+      }
+    }
+    for (let index = 0; index < e2rray.length; index++) {
+      if (e2rray[index] !== "") {
+        e2Li += `<li class="relsutLi">${e2rray[index]}</li><br>`;
       }
     }
     for (let index = 0; index < trray.length; index++) {
       if (trray[index] !== "") {
-        tLi += `<li>${trray[index]}</li><br>`;
+        tLi += `<li class="relsutLi">${trray[index]}</li><br>`;
       }
     }
     for (let index = 0; index < orray.length; index++) {
       if (orray[index] !== "") {
-        oLi += `<li>${orray[index]}</li><br>`;
+        oLi += `<li class="relsutLi">${orray[index]}</li><br>`;
       }
     }
     for (let index = 0; index < tArray.length; index++) {
       if (tArray[index] !== "") {
-        tALi += `<li>${tArray[index]}</li><br>`;
+        tALi += `<li class="relsutLi">${tArray[index]}</li><br>`;
       }
     }
     for (let index = 0; index < tSrray.length; index++) {
       if (tSrray[index] !== "") {
-        tSLi += `<li>${tSrray[index]}</li><br>`;
+        tSLi += `<li class="relsutLi">${tSrray[index]}</li><br>`;
       }
     }
     for (let index = 0; index < tHrray.length; index++) {
       if (tHrray[index] !== "") {
-        tHLi += `<li>${tHrray[index]}</li><br>`;
+        tHLi += `<li class="relsutLi">${tHrray[index]}</li><br>`;
       }
     }
 
     for (let index = 0; index < parray.length; index++) {
       if (parray[index] !== "") {
-        pLi += `<li>${parray[index]}</li><br>`;
+        pLi += `<li class="relsutLi">${parray[index]}</li><br>`;
       }
     }
 
     for (let index = 0; index < larray.length; index++) {
       if (larray[index] !== "") {
-        lLi += `<li>${larray[index]}</li><br>`;
+        lLi += `<li class="relsutLi">${larray[index]}</li><br>`;
       }
     }
 
     for (let index = 0; index < opoarray.length; index++) {
       if (opoarray[index] !== "") {
-        opoLi += `<li>${opoarray[index]}</li><br>`;
+        opoLi += `<li class="relsutLi">${opoarray[index]}</li><br>`;
       }
     }
 
     
       if (pu.checked) {
-        puLi += `<li>${pu.value}</li><br>`;
+        puLi += `<li class="relsutLi">${pu.value}</li><br>`;
       }
     
 
     for (let index = 0; index < narray.length; index++) {
       if (narray[index] !== "") {
-        nLi += `<li>${narray[index]}</li><br>`;
+        nLi += `<li class="relsutLi">${narray[index]}</li><br>`;
       }
     }
 
@@ -245,7 +255,8 @@ function splice() {
     cmLi += "</ul>";
     pcLi += "</ul>";
     bLi += "</ul>";
-    eLi += "</ul>";
+    e1Li += "</ul>";
+    e2Li += "</ul>";
     tLi += "</ul>";
     tALi += "</ul>";
     tSLi += "</ul>";
@@ -278,7 +289,8 @@ function splice() {
     <strong>Business:</strong>
     <p>${bLi}</p>
     <strong>Environment:</strong>
-    <p>${eLi}</p>
+    <p> ${e1Li}</p>
+    <p>${e2Li}</p>
     <strong>Technical:</strong>
     <p>${tLi}</p>
     <strong>Architecture:</strong>
@@ -368,10 +380,11 @@ function refazer() {
   document.getElementById("pcInput").value = "";
   document.getElementById("betoTeste").innerText = "";
   document.getElementById("lInput").value = "";
-  document.getElementById("puInput").value = "";
   document.getElementById("opoInput").value = "";
   document.getElementById("pInput").value = "";
   document.getElementById("nInput").value = "";
+  document.getElementById("e1Input").value = "";
+  document.getElementById("e2Input").value = "";
 }
 
 function copy() {

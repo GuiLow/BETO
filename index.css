@@ -159,15 +159,15 @@ textarea{
 .tooltipText{
   font-size: large;
   font-weight: 900;
-  border-radius: 100%;
+  border: none;
   text-align: center;
   justify-content: center;
   padding: .1rem;
   width: 25px;
   height: 25px;
-  border: solid black 1.5px;
   display: inline-block;
   padding-top: .2rem;
+  color: #0059ff;
 
 }
 
@@ -268,7 +268,25 @@ textarea{
   margin-top: 1rem;
   margin-left: 1rem;
 }
-
+#no{
+  margin-bottom: 1.5rem;
+}
 #radioNo{
   margin-left: .7rem;
+}
+
+.sub{
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+#topico{
+  font-weight: 400;
+  margin-bottom: .5rem;
+}
+
+
+.relsutLi{
+  margin-left: 2rem;
+  width: 90%;
 }

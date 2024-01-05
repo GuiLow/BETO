@@ -44,7 +44,7 @@
 
           <div class="containerTooltips">
             <span class="tooltipText">?</span>
-            <span class="tooltipContent">Apresnete uma visão de mercado do cliente (descricão em site pessoal ou
+            <span class="tooltipContent">Apresente uma visão de mercado do cliente (descricão em site pessoal ou
               wikipedia)</span>
           </div>
         </div>
@@ -120,19 +120,29 @@
         <textarea name="bInput" id="bInput" class="textAreas" oninput="autoResize(this)" style="padding: .5rem;"
           oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
       </div>
+      <div class="sub">
+        <h2 id="topico">Quais variáveis de ambiente do cliente influenciaram no deploy? </h2>
+        <span style="margin-top: 4rem; margin-bottom: 5rem;">Descreva, separando por Helpers e/ou Blockers, quais fatores contribuíram ou atrapalharam durante a implementação?<span style="color: red;">*</span></span>
+      </div>
+      
+      <div class="content">
+        
+        <br>
+        <div class="lables">
+          <label for="e1Input">Helpers<span style="color: red;">*</span></label>
+
+        </div>
+        <textarea required name="e1Input" id="e1Input" class="textAreas" oninput="autoResize(this)"
+          style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
+          rows="5"></textarea>
+      </div>
 
       <div class="content">
         <div class="lables">
-          <label for="eInput">Quais variáveis de ambiente do cliente influenciaram no deploy? <br>Isto é, quais fatores contribuíram ou atrapalharam durante a implementação?<span style="color: red;">*</span></label>
-          <div class="containerTooltips">
-            <span class="tooltipText">?</span>
-            <span class="tooltipContent">O que, no contexto de funcionamento, organização ou governança do cliente,<br>
-              causam essa dor de negócio? <br>
-              Que tipo de processo, ou inexistência de processo, faz com que essa dor exista? </span>
-          </div>
+          <label for="e2Input">Blockers<span style="color: red;">*</span></label>
 
         </div>
-        <textarea required name="eInput" id="eInput" class="textAreas" oninput="autoResize(this)"
+        <textarea required name="e2Input" id="e2Input" class="textAreas" oninput="autoResize(this)"
           style="padding: .5rem;" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100"
           rows="5"></textarea>
       </div>
@@ -289,7 +299,7 @@
           <input class="radio" type="radio" name="grupo" id="radioYes" value="YES">
         </div>
 
-        <div class="radios">
+        <div class="radios" id="no">
           <label for="">NÃO</label>
           <input class="radio" type="radio" name="grupo" id="radioNo" value="NO">
         </div>
