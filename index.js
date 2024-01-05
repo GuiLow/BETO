@@ -271,12 +271,12 @@ function splice() {
 
     if (co != "") {
       document.getElementById("betoTeste").innerHTML = `
-    <strong>Costumer Overview:</strong>
+    <strong>Customer Overview:</strong>
     <p>${coLi}</p>`;
     }
     if (cm != "") {
       document.getElementById("betoTeste").innerHTML += `
-    <strong>Costumer Mission:</strong>
+    <strong>Customer Mission:</strong>
     <p>${cmLi}</p>`;
     }
     if (pc != "") {
