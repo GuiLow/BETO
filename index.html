@@ -120,8 +120,19 @@
         <textarea name="bInput" id="bInput" class="textAreas" oninput="autoResize(this)" style="padding: .5rem;"
           oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' cols="100" rows="5"></textarea>
       </div>
-      <div class="sub">
-        <h2 id="topico">Quais variáveis de ambiente do cliente influenciaram no deploy? </h2>
+      <div class="sub"><div class="content">
+        <div class="lables">
+          <h3 id="topico">Quais variáveis de ambiente do cliente influenciaram no deploy? </h3>
+          <div class="containerTooltips"id="tooltipE">
+            <span class="tooltipText" >?</span>
+            <span class="tooltipContent">O que, no contexto de funcionamento, organização ou governança do cliente,<br>
+              causam essa dor de negócio? <br>
+              Que tipo de processo, ou inexistência de processo, faz com que essa dor exista? </span>
+          </div>
+        </div>
+      </div>
+       
+        
         <span style="margin-top: 4rem; margin-bottom: 5rem;">Descreva, separando por Helpers e/ou Blockers, quais fatores contribuíram ou atrapalharam durante a implementação?<span style="color: red;">*</span></span>
       </div>
       
@@ -130,6 +141,7 @@
         <br>
         <div class="lables">
           <label for="e1Input">Helpers<span style="color: red;">*</span></label>
+        
 
         </div>
         <textarea required name="e1Input" id="e1Input" class="textAreas" oninput="autoResize(this)"
