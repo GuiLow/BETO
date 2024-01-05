@@ -369,7 +369,6 @@ function show() {
 
 function refazer() {
   document.getElementById("bInput").value = "";
-  document.getElementById("eInput").value = "";
   document.getElementById("tInput").value = "";
   document.getElementById("oInput").value = "";
   document.getElementById("tAInput").value = "";
