@@ -39,19 +39,35 @@ function armazenarDadosDoFormularioEmCache() {
   const p = document.getElementById("pInput").value;
   const l = document.getElementById("lInput").value;
   const opo = document.getElementById("opoInput").value;
-  const pu = document.getElementById("puInput")
+  const pu = document.getElementById("puInput");
   const n = document.getElementById("nInput").value;
+  const im = document.getElementById("imInput").value;
 
   const dadosFormulario = {
-    co, cm, pc, b, e, t, o, tA, tS, tH, p, l, opo, pu, n
+    co,
+    cm,
+    pc,
+    b,
+    e,
+    t,
+    o,
+    tA,
+    tS,
+    tH,
+    p,
+    l,
+    opo,
+    pu,
+    n,
+    im,
   };
 
-  armazenarEmCache('dadosFormulario', dadosFormulario);
+  armazenarEmCache("dadosFormulario", dadosFormulario);
 }
 
 // Função para carregar dados do cache e preencher o formulário
 function carregarDadosDoCache() {
-  const dadosFormulario = recuperarDoCache('dadosFormulario');
+  const dadosFormulario = recuperarDoCache("dadosFormulario");
 
   if (dadosFormulario) {
     armazenarDadosDoFormularioEmCache();
@@ -70,12 +86,12 @@ function carregarDadosDoCache() {
     document.getElementById("opoInput").value = dadosFormulario.opo;
     document.getElementById("puInput").value = dadosFormulario.pu;
     document.getElementById("nInput").value = dadosFormulario.n;
+    document.getElementById("imInput").value = dadosFormulario.im;
   }
 }
 
 // Chamar a função para carregar os dados do cache ao carregar a página
-document.addEventListener('DOMContentLoaded', carregarDadosDoCache);
-
+document.addEventListener("DOMContentLoaded", carregarDadosDoCache);
 
 function validar() {
   const b = document.getElementById("bInput").value;
@@ -86,7 +102,6 @@ function validar() {
   const tA = document.getElementById("tAInput").value;
   const tS = document.getElementById("tSInput").value;
   const tH = document.getElementById("tHInput").value;
-  
 
   if (
     b == "" ||
@@ -120,13 +135,11 @@ function splice() {
     const tH = document.getElementById("tHInput").value;
     const p = document.getElementById("pInput").value;
     const l = document.getElementById("lInput").value;
-    const opo = document.getElementById("opoInput").value
-    const pu = document.getElementById("radioYes")
-    const n = document.getElementById("nInput").value
+    const opo = document.getElementById("opoInput").value;
+    const pu = document.getElementById("radioYes");
+    const n = document.getElementById("nInput").value;
+    const im = document.getElementById("imInput").value;
     const teste = document.getElementById("betoTeste");
-    
-
-
 
     if (document.getElementById("betoTeste").innerHTML != "") {
       document.getElementById("betoTeste").innerHTML = "";
@@ -147,6 +160,7 @@ function splice() {
     const larray = l.split("\n");
     const opoarray = opo.split("\n");
     const narray = n.split("\n");
+    const imarray = im.split("\n");
 
     let coLi = "<ul>";
     let cmLi = "<ul>";
@@ -164,6 +178,8 @@ function splice() {
     let opoLi = "<ul>";
     let puLi = "<ul>";
     let nLi = "<ul>";
+    let imLi = "<ul>";
+
 
     for (let index = 0; index < corray.length; index++) {
       if (corray[index] !== "") {
@@ -239,15 +255,19 @@ function splice() {
       }
     }
 
-    
-      if (pu.checked) {
-        puLi += `<li class="relsutLi">${pu.value}</li><br>`;
-      }
-    
+    if (pu.checked) {
+      puLi += `<li class="relsutLi">${pu.value}</li><br>`;
+    }
 
     for (let index = 0; index < narray.length; index++) {
       if (narray[index] !== "") {
         nLi += `<li class="relsutLi">${narray[index]}</li><br>`;
+      }
+    }
+
+    for (let index = 0; index < imarray.length; index++) {
+      if (imarray[index] !== "") {
+        imLi += `<li class="relsutLi">${imarray[index]}</li><br>`;
       }
     }
 
@@ -266,8 +286,9 @@ function splice() {
     opoLi += "</ul>";
     puLi += "</ul>";
     nLi += "</ul>";
+    imLi += "</ul>";
 
-    console.log(puLi)
+    console.log(puLi);
 
     if (co != "") {
       document.getElementById("betoTeste").innerHTML = `
@@ -289,7 +310,12 @@ function splice() {
     <strong>Business:</strong>
     <p>${bLi}</p>
     <strong>Environment:</strong>
+    <br>
+    <br>
+    <br>
+    <span>Helpers:</span>
     <p> ${e1Li}</p>
+    <span>Blockers:</span>
     <p>${e2Li}</p>
     <strong>Technical:</strong>
     <p>${tLi}</p>
@@ -303,44 +329,42 @@ function splice() {
     <p>${oLi}</p>
   `;
 
-
-  if (l != "") {
-    document.getElementById("betoTeste").innerHTML += `
+    if (l != "") {
+      document.getElementById("betoTeste").innerHTML += `
   <strong>Lessons Learned:</strong>
   <p>${lLi}</p>`;
-  }
+    }
 
-
- 
- 
-
-  if ( p != "") {
-    document.getElementById("betoTeste").innerHTML += `
+    if (p != "") {
+      document.getElementById("betoTeste").innerHTML += `
   <strong>Project phases:</strong>
   <p>${pLi}</p>`;
-  }
+    }
 
-  if (opo != "") {
-    document.getElementById("betoTeste").innerHTML += `
-  <strong>Opportunity Identification versus Implementation:</strong>
+    if (opo != "") {
+      document.getElementById("betoTeste").innerHTML += `
+  <strong>Opportunity Identification:</strong>
   <p>${opoLi}</p>`;
-  }
+    }
 
-  if (pu.checked) {
-    document.getElementById("betoTeste").innerHTML += `
+    if (im != "") {
+      document.getElementById("betoTeste").innerHTML += `
+  <strong>Implementation:</strong>
+  <p>${imLi}</p>`;
+    }
+
+    if (pu.checked) {
+      document.getElementById("betoTeste").innerHTML += `
   <strong>Public Reference/peer Insights:</strong>
   <p>${puLi}</p>`;
-  }
+    }
 
-  if (n != "") {
-    document.getElementById("betoTeste").innerHTML += `
+    if (n != "") {
+      document.getElementById("betoTeste").innerHTML += `
   <strong>Next Steps:</strong>
   <p>${nLi}</p>`;
+    }
   }
-
-  }
-
-  
 }
 
 function autoResize(textarea) {
@@ -387,24 +411,21 @@ function refazer() {
 }
 
 function copy() {
-  const modalD = document.getElementById("modal-download")
-  const modal = document.getElementById("modal-copy")
+  const modalD = document.getElementById("modal-download");
+  const modal = document.getElementById("modal-copy");
   const betoTeste = document.getElementById("betoTeste");
   const textToCopy = betoTeste.innerText;
 
   navigator.clipboard
     .writeText(textToCopy)
     .then(() => {
-
-      modal.style.display = "block"
+      modal.style.display = "block";
       if (modalD.style.display == "block") {
-        modalD.style.display = "none"
-  
+        modalD.style.display = "none";
       }
-      setTimeout(()=>{
-       modal.style.display = "none"
-      }, 3000)
-      
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 3000);
     })
     .catch((error) => {
       console.error("Erro ao copiar o texto: ", error);
@@ -413,8 +434,8 @@ function copy() {
 }
 
 function download() {
-  const modalC = document.getElementById("modal-copy")
-  const modal = document.getElementById("modal-download")
+  const modalC = document.getElementById("modal-copy");
+  const modal = document.getElementById("modal-download");
   const betoTeste = document.getElementById("betoTeste");
   const doc = new jsPDF();
 
@@ -427,53 +448,52 @@ function download() {
   doc.setTextColor(styles.color);
 
   // Dividir o texto em linhas
-  const textLines = doc.splitTextToSize(betoTeste.innerText, doc.internal.pageSize.width - 30);
+  const textLines = doc.splitTextToSize(
+    betoTeste.innerText,
+    doc.internal.pageSize.width - 30
+  );
 
   // Iniciar a posição de Y
   let yPosition = 15;
 
   // Função para adicionar uma nova página se necessário
   const addNewPageIfNeeded = () => {
-      if (yPosition > doc.internal.pageSize.height - 15) {
-          doc.addPage();
-          yPosition = 15; // Reiniciar a posição de Y na nova página
-      }
+    if (yPosition > doc.internal.pageSize.height - 15) {
+      doc.addPage();
+      yPosition = 15; // Reiniciar a posição de Y na nova página
+    }
   };
 
   // Adicionar cada linha ao PDF
   for (let i = 0; i < textLines.length; i++) {
-      // Adicionar uma nova linha apenas se não for a primeira
-      if (i > 0) {
-          yPosition += parseInt(styles.lineHeight) || 10;
-          addNewPageIfNeeded(); // Verificar se é necessário adicionar uma nova página
-      }
-      doc.text(15, yPosition, textLines[i]);
-      addNewPageIfNeeded(); // Verificar novamente após adicionar o texto
+    // Adicionar uma nova linha apenas se não for a primeira
+    if (i > 0) {
+      yPosition += parseInt(styles.lineHeight) || 10;
+      addNewPageIfNeeded(); // Verificar se é necessário adicionar uma nova página
+    }
+    doc.text(15, yPosition, textLines[i]);
+    addNewPageIfNeeded(); // Verificar novamente após adicionar o texto
   }
 
   // Salvar o arquivo PDF
-  doc.save('beto.pdf');
-  modal.style.display = "block"
+  doc.save("beto.pdf");
+  modal.style.display = "block";
 
-    if (modalC.style.display == "block" ) {
-      modalC.style.display = "none"
-      
-    }
+  if (modalC.style.display == "block") {
+    modalC.style.display = "none";
+  }
 
-  setTimeout(()=>{
-    modal.style.display = "none"
-  }, 3000)
-
- 
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 3000);
 }
 
-
-function closeCopy(){
-  const modal = document.getElementById("modal-copy")
-  modal.style.display = "none"
+function closeCopy() {
+  const modal = document.getElementById("modal-copy");
+  modal.style.display = "none";
 }
 
-function closeDownload(){
-  const modal = document.getElementById("modal-download")
-  modal.style.display = "none"
+function closeDownload() {
+  const modal = document.getElementById("modal-download");
+  modal.style.display = "none";
 }
