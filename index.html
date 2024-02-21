@@ -30,10 +30,19 @@
   </div>
   <p>A ideia do BETO é servir como template para contar a história de como ocorreu a implementação
     dos casos que trabalhamos. <a href="https://ibm.box.com/s/o3fqv33ucetmzanen0n7urlhcpmmvva8" target="_blank">Explicação BETO</a></p>
+
+  <span id="adendo">Em caso de dúvida passe o mouse sobre o icone de  <span class="tooltipText">?</span> para uma descriçãa mais profunda da pergunta</span>
       
-      <form class="formulario">
+  <form class="formulario">
     
     <div class="container">
+
+      <!-- Rounded switch -->
+      <span id="textSaas">Saas?</span>
+      <label class="switch">
+        <input id="saas" type="checkbox">
+        <span class="slider round"></span>
+      </label>
 
       <div class="content">
 
@@ -110,11 +119,10 @@
       </div>
       <div class="content">
         <div class="lables">
-          <label for="bInput">Qual era a dor de negócio?<span style="color: red;">*</span></label>
+          <label for="bInput">Qual o C.R.A. do cliente para esse projeto?<span style="color: red;">*</span></label>
           <div class="containerTooltips">
             <span class="tooltipText">?</span>
-            <span class="tooltipContent">Qual a dor de negócio que justificou o investimento no projeto? <br>
-              Qual o C.R.A.? <br></span>
+            <span class="tooltipContent">Qual a dor de negócio que justificou o investimento no projeto?</span>
           </div>
         </div>
         <textarea name="bInput" id="bInput" class="textAreas" oninput="autoResize(this)" style="padding: .5rem;"

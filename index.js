@@ -6,7 +6,12 @@ function armazenarEmCache(chave, valor) {
   const dados = { valor, timestamp: agora };
   localStorage.setItem(chave, JSON.stringify(dados));
 }
+const saas = document.getElementById("saas")
 
+if (saas.checked) {
+  document.getElementById("tAInput").style("display: hidden")
+  console.log("passou")
+}
 // Função para recuperar dados em cache
 function recuperarDoCache(chave) {
   const dados = localStorage.getItem(chave);
@@ -408,6 +413,7 @@ function refazer() {
   document.getElementById("nInput").value = "";
   document.getElementById("e1Input").value = "";
   document.getElementById("e2Input").value = "";
+  document.getElementById("imInput").value = "";
 }
 
 function copy() {
@@ -454,13 +460,13 @@ function download() {
   );
 
   // Iniciar a posição de Y
-  let yPosition = 15;
+  let yPosition = 20;
 
   // Função para adicionar uma nova página se necessário
   const addNewPageIfNeeded = () => {
-    if (yPosition > doc.internal.pageSize.height - 15) {
+    if (yPosition > doc.internal.pageSize.height - 20) {
       doc.addPage();
-      yPosition = 15; // Reiniciar a posição de Y na nova página
+      yPosition = 20; // Reiniciar a posição de Y na nova página
     }
   };
 
