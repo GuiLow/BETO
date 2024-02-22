@@ -504,7 +504,8 @@ function download() {
     }
   };
 
-  doc.text(15, yPosition, "Custumer Overview: ");
+  if (Co) {
+    doc.text(15, yPosition, "Custumer Overview: ");
   yPosition += 10;;
 
   for (let i = 0; i < Co.length; i++) {
@@ -514,16 +515,25 @@ function download() {
     contagem++;
   }
 
-  doc.text(15, yPosition + pix, "Customer Mission:  ");
   yPosition += 10;
-
-  for (let i = 0; i < Cm.length; i++) {
-    addNewPageIfNeeded(doc, contagem, yPosition);
-    doc.text(25, yPosition + pix, Cm[i]);
-    yPosition += 10;
-    contagem++;
   }
 
+  if (Cm) {
+    doc.text(15, yPosition + pix, "Customer Mission:  ");
+    yPosition += 10;
+  
+    for (let i = 0; i < Cm.length; i++) {
+      addNewPageIfNeeded(doc, contagem, yPosition);
+      doc.text(25, yPosition + pix, Cm[i]);
+      yPosition += 10;
+      contagem++;
+    }
+    yPosition += 10;
+  }
+
+  
+
+ 
   if (pc) {
     yPosition += 20;
     doc.text(15, yPosition + pix, "Project Contacts:  ");
@@ -535,13 +545,12 @@ function download() {
       yPosition += 10;
       contagem++;
     }
-
-
+    yPosition += 10;
   }
-  yPosition += 10;
 
-
-  doc.text(15, yPosition + pix, "Business:  ");
+ 
+  if (B) {
+    doc.text(15, yPosition + pix, "Business:  ");
   yPosition += 10;
 
   for (let i = 0; i < B.length; i++) {
@@ -550,8 +559,12 @@ function download() {
     yPosition += 10;
     contagem++;
   }
+  yPosition += 10;
+  }
 
-  doc.text(15, yPosition + pix, "Environment:  ");
+
+  if (H) {
+    doc.text(15, yPosition + pix, "Environment:  ");
   yPosition += 10;
 
   doc.text(15, yPosition + pix, "Helpers:  ");
@@ -565,7 +578,11 @@ function download() {
   }
 
   yPosition += 10;
-  doc.text(15, yPosition + pix, "Blockers:  ");
+  }
+  
+
+  if (E2) {
+    doc.text(15, yPosition + pix, "Blockers:  ");
   yPosition += 10;
 
   for (let i = 0; i < E2.length; i++) {
@@ -574,7 +591,11 @@ function download() {
     yPosition += 10;
     contagem++;
   }
+  yPosition += 10;
+  }
 
+  if (T) {
+    
   doc.text(15, yPosition + pix, "Technical:  ");
   yPosition += 10;
 
@@ -586,7 +607,11 @@ function download() {
   }
 
   yPosition += 10;
-  doc.text(15, yPosition + pix, "Architecture:  ");
+
+  }
+
+  if (TA) {
+    doc.text(15, yPosition + pix, "Architecture:  ");
   yPosition += 10;
 
   for (let i = 0; i < TA.length; i++) {
@@ -595,7 +620,12 @@ function download() {
     yPosition += 10;
     contagem++;
   }
+  yPosition += 10;
 
+  }
+  
+  
+if (TS) {
   doc.text(15, yPosition + pix, "Storage:  ");
   yPosition += 10;
 
@@ -605,7 +635,10 @@ function download() {
     yPosition += 10;
     contagem++;
   }
-
+  yPosition += 10;
+}
+  
+if (TH) {
   doc.text(15, yPosition + pix, "HA:  ");
   yPosition += 10;
 
@@ -616,6 +649,11 @@ function download() {
     contagem++;
   }
   yPosition += 10;
+}
+  
+
+if (O) {
+  
   doc.text(15, yPosition + pix, "Outcome:  ");
   yPosition += 10;
 
@@ -626,6 +664,11 @@ function download() {
     contagem++;
   }
 
+  yPosition += 10;
+
+}
+
+if (L) {
   doc.text(15, yPosition + pix, "Lessons Learned:  ");
   yPosition += 10;
 
@@ -637,6 +680,10 @@ function download() {
   }
 
   yPosition += 10;
+}
+
+
+if (P) {
   doc.text(15, yPosition + pix, "Project phases:  ");
   yPosition += 10;
 
@@ -647,6 +694,10 @@ function download() {
     contagem++;
   }
   yPosition += 10;
+}
+  
+
+if (Opo) {
   doc.text(15, yPosition + pix, "Opportunity Identification:  ");
   yPosition += 10;
 
@@ -657,6 +708,11 @@ function download() {
     contagem++;
   }
 
+  yPosition += 10;
+}
+ 
+
+if (Im) {
   doc.text(15, yPosition + pix, "Implementation:  ");
   yPosition += 10;
 
@@ -666,6 +722,44 @@ function download() {
     yPosition += 10;
     contagem++;
   }
+  yPosition += 10;
+}
+  
+
+if (pu.checked) {
+  doc.text(15, yPosition + pix, "Public Reference:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < Pu.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, "Yes");
+    yPosition += 10;
+    contagem++;
+  }
+
+  yPosition += 10;
+}
+ 
+
+if (N) {
+  doc.text(15, yPosition + pix, "Nexte Steps:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < N.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, N[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  yPosition += 10;
+
+}
+
+ 
+
+ 
+
 
   // Salvar o arquivo PDF
   doc.save("beto.pdf");
