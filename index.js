@@ -10,7 +10,6 @@ const saas = document.getElementById("saas")
 
 if (saas.checked) {
   document.getElementById("tAInput").style("display: hidden")
-  console.log("passou")
 }
 // Função para recuperar dados em cache
 function recuperarDoCache(chave) {
@@ -66,7 +65,6 @@ function armazenarDadosDoFormularioEmCache() {
     n,
     im,
   };
-
   armazenarEmCache("dadosFormulario", dadosFormulario);
 }
 
@@ -293,7 +291,7 @@ function splice() {
     nLi += "</ul>";
     imLi += "</ul>";
 
-    console.log(puLi);
+
 
     if (co != "") {
       document.getElementById("betoTeste").innerHTML = `
@@ -443,6 +441,25 @@ function download() {
   const modalC = document.getElementById("modal-copy");
   const modal = document.getElementById("modal-download");
   const betoTeste = document.getElementById("betoTeste");
+
+  const b = document.getElementById("bInput").value;
+  const h = document.getElementById("e1Input").value;
+  const co = document.getElementById("coInput").value;
+  const cm = document.getElementById("cmInput").value;
+  const pc = document.getElementById("pcInput").value;
+  const e2 = document.getElementById("e2Input").value;
+  const t = document.getElementById("tInput").value;
+  const o = document.getElementById("oInput").value;
+  const tA = document.getElementById("tAInput").value;
+  const tS = document.getElementById("tSInput").value;
+  const tH = document.getElementById("tHInput").value;
+  const p = document.getElementById("pInput").value;
+  const l = document.getElementById("lInput").value;
+  const opo = document.getElementById("opoInput").value;
+  const pu = document.getElementById("radioYes");
+  const n = document.getElementById("nInput").value;
+  const im = document.getElementById("imInput").value;
+
   const doc = new jsPDF();
 
   // Capturar estilos do elemento HTML
@@ -450,35 +467,204 @@ function download() {
 
   // Configurar o estilo no PDF
   doc.setFontSize(parseInt(styles.fontSize));
-  doc.setFont("times", "normal");
+  doc;
   doc.setTextColor(styles.color);
 
-  // Dividir o texto em linhas
-  const textLines = doc.splitTextToSize(
-    betoTeste.innerText,
-    doc.internal.pageSize.width - 30
-  );
+  let contagem = 0; let pix = 20;
+
+  const B = doc.splitTextToSize(b, doc.internal.pageSize.width - 40);
+  const H = doc.splitTextToSize(h, doc.internal.pageSize.width - 40);
+  const Co = doc.splitTextToSize(co, doc.internal.pageSize.width - 40);
+  const Cm = doc.splitTextToSize(cm, doc.internal.pageSize.width - 40);
+  const Pc = doc.splitTextToSize(pc, doc.internal.pageSize.width - 40);
+  const E2 = doc.splitTextToSize(e2, doc.internal.pageSize.width - 40);
+  const T = doc.splitTextToSize(t, doc.internal.pageSize.width - 40);
+  const O = doc.splitTextToSize(o, doc.internal.pageSize.width - 40);
+  const TA = doc.splitTextToSize(tA, doc.internal.pageSize.width - 40);
+  const TS = doc.splitTextToSize(tS, doc.internal.pageSize.width - 40);
+  const TH = doc.splitTextToSize(tH, doc.internal.pageSize.width - 40);
+  const L = doc.splitTextToSize(l, doc.internal.pageSize.width - 40);
+  const Opo = doc.splitTextToSize(opo, doc.internal.pageSize.width - 40);
+  const Pu = doc.splitTextToSize(pu, doc.internal.pageSize.width - 40);
+  const N = doc.splitTextToSize(n, doc.internal.pageSize.width - 40);
+  const Im = doc.splitTextToSize(im, doc.internal.pageSize.width - 40);
+  const P = doc.splitTextToSize(p, doc.internal.pageSize.width - 40);
 
   // Iniciar a posição de Y
   let yPosition = 20;
 
   // Função para adicionar uma nova página se necessário
-  const addNewPageIfNeeded = () => {
-    if (yPosition > doc.internal.pageSize.height - 20) {
+  const addNewPageIfNeeded = (doc, lineHeight, position) => {
+    // Verificar se a próxima linha cabe na página atual
+    if (position + lineHeight > doc.internal.pageSize.height - 20) {
       doc.addPage();
       yPosition = 20; // Reiniciar a posição de Y na nova página
+      contagem = 0; // Reiniciar a contagem de linhas
+
     }
   };
 
-  // Adicionar cada linha ao PDF
-  for (let i = 0; i < textLines.length; i++) {
-    // Adicionar uma nova linha apenas se não for a primeira
-    if (i > 0) {
-      yPosition += parseInt(styles.lineHeight) || 10;
-      addNewPageIfNeeded(); // Verificar se é necessário adicionar uma nova página
+  doc.text(15, yPosition, "Custumer Overview: ");
+  yPosition += 10;;
+
+  for (let i = 0; i < Co.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition, Co[i]);
+    yPosition += 10; // Atualizar a posição Y
+    contagem++;
+  }
+
+  doc.text(15, yPosition + pix, "Customer Mission:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < Cm.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, Cm[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  if (pc) {
+    yPosition += 20;
+    doc.text(15, yPosition + pix, "Project Contacts:  ");
+    yPosition += 10;
+
+    for (let i = 0; i < Pc.length; i++) {
+      addNewPageIfNeeded(doc, contagem, yPosition);
+      doc.text(25, yPosition + pix, Pc[i]);
+      yPosition += 10;
+      contagem++;
     }
-    doc.text(15, yPosition, textLines[i]);
-    addNewPageIfNeeded(); // Verificar novamente após adicionar o texto
+
+
+  }
+  yPosition += 10;
+
+
+  doc.text(15, yPosition + pix, "Business:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < B.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, B[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  doc.text(15, yPosition + pix, "Environment:  ");
+  yPosition += 10;
+
+  doc.text(15, yPosition + pix, "Helpers:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < H.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, H[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  yPosition += 10;
+  doc.text(15, yPosition + pix, "Blockers:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < E2.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, E2[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  doc.text(15, yPosition + pix, "Technical:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < T.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, T[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  yPosition += 10;
+  doc.text(15, yPosition + pix, "Architecture:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < TA.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, TA[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  doc.text(15, yPosition + pix, "Storage:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < TS.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, TS[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  doc.text(15, yPosition + pix, "HA:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < TH.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, TH[i]);
+    yPosition += 10;
+    contagem++;
+  }
+  yPosition += 10;
+  doc.text(15, yPosition + pix, "Outcome:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < O.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, O[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  doc.text(15, yPosition + pix, "Lessons Learned:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < L.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, L[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  yPosition += 10;
+  doc.text(15, yPosition + pix, "Project phases:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < P.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, B[i]);
+    yPosition += 10;
+    contagem++;
+  }
+  yPosition += 10;
+  doc.text(15, yPosition + pix, "Opportunity Identification:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < Opo.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, Opo[i]);
+    yPosition += 10;
+    contagem++;
+  }
+
+  doc.text(15, yPosition + pix, "Implementation:  ");
+  yPosition += 10;
+
+  for (let i = 0; i < Im.length; i++) {
+    addNewPageIfNeeded(doc, contagem, yPosition);
+    doc.text(25, yPosition + pix, Im[i]);
+    yPosition += 10;
+    contagem++;
   }
 
   // Salvar o arquivo PDF
